@@ -1,0 +1,30 @@
+<% layout("/layouts/boilerplate")%>
+
+  <body>
+    <h3>ALL Listings</h3>
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm- 1  ">
+      <%for(let listing of alllisting ){%>
+        <a href="/listings/<%=listing._id%>" class="listing-link">
+          <div class="card">
+            <img class="card-img-top" src="<%=listing.image %>" alt="Listing_img" style="height: 20rem;">
+            <div class="card-body">
+              <div class="card-img-overlay">Card title </div>
+
+
+              <b>
+                <%= listing.title %> <br>
+              </b>
+              <!-- =listing.price.toLocaleString("en-IN")/night -->
+               &#x20b9;<%= listing.price ? listing.price.toLocaleString("en-IN") : "0" %>/night
+
+            </div>
+          </div>
+          <%}%>
+    </div>
+    </a>
+
+
+
+    <!-- <form  method="get" action="/listing/new"><button>Craete New Listings</button></form> -->
+  </body>

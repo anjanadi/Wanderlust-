@@ -1,0 +1,57 @@
+<% layout("/layouts/boilerplate")%>
+
+
+
+  <div class="row mt-3">
+    <div class="col-8 offset-3">
+      <div class="card col-6 offset-3 show-card">
+        <h3>
+          <%=listing.title%>:
+        </h3>
+        <img class="card-img-top show-img" src="<%=listing.image%>" alt="Card image cap">
+        <div class="card-body">
+
+          <li>
+            <%=listing.description%>
+          </li>
+          <li>&#x20b9;<%=listing.price.toLocaleString("en-IN")%></li>
+          <!-- use toLocaleString to function use to make the coomass shows     and (en-in )is to give thst commas in indiuan style
+        //   -->
+          <li>
+            <%=listing.location%>
+          </li>
+          <li>
+            <%=listing.country%>
+          </li>
+
+          </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+    <ul>
+      <div class=" btns col-8 offset-3">
+        <a href="/listings/<%=listing._id%>/edit" class="btn btn-dark col-1 offset-3 edit-btn">Edit </a>
+
+
+        <form method="post" action="/listings/<%=listing.id%>?_method=delete"><button
+            class="btn btn-dark offset-5 ">delete</button></form>
+      </div>
+<hr>
+      <div class=" col-6 offset-5 ">
+        <h4> Leave A Review!</h4>
+        <form action="/listings/<%=listing._id%>/reviews" method="POST">
+          <div class="mb-3 mt-3">
+            <label for="rating" class="form-label">Ratings</label>
+            <input type="range" id="rating" name="review[rating]" min="1" max="5"class="form-range">
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="comment" class="form-label">Comments</label>
+            <textarea id="comment" name="review[comment]" cols="30" rows="5" class="form-control"></textarea>
+          </div>
+          <div>
+            <button class="btn btn-dark">Submit Review</button>
+          </div>
+        </form>
+      </div>
+  </div>
